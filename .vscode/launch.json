@@ -11,7 +11,10 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/main.js"
+            // "program": "${workspaceFolder}/convertTXTtoXLSX.js"
+            // "program": "${workspaceFolder}/convertPNGtoTXT.js"
+            "program": "${workspaceFolder}/convertPDFtoPNG.js"
+            // "program": "${workspaceFolder}/convertWithNodeTess.js"
         }
     ]
 }
