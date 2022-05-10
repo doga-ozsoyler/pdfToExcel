@@ -44,9 +44,11 @@ function convertPDFtoPNGFunc(boolConvertedAll) {
       outputname: files[i], // output file name, dafault null (if null given, then it will create image name same as input name)
     });
 
+    console.log("--------------------------");
     converter
       .convert(arrayOfFile[i])
       .then((info) => {
+        // console.log(info);
         if (info.result === "success") {
           var arrayOfPDFImagesLocal = [];
           for (var k = 0; k < info.message.length; k++) {
@@ -54,13 +56,13 @@ function convertPDFtoPNGFunc(boolConvertedAll) {
             arrayOfPDFImagesLocal.push(info.message[i].path);
 
             if (
-              arrayOfPDFImagesLocal.length === info.message.length &&
+              // arrayOfPDFImagesLocal.length === info.message.length &&
               // info.message[arrayOfFile.length].page
               info.result === "success" &&
               arrayOfFile[i + 1] === undefined
             ) {
               // console.log("INFO INSIDE IF: " + info.result)
-              // console.log("LAST FILE IS DONE")
+              console.log("LAST FILE IS DONE");
               boolConvertedAll = true;
               console.log("PDF to PNG conversion Done!");
               convertWithNodeTess(boolConvertedAll, arrayOfPDFImages.length);
@@ -76,6 +78,7 @@ function convertPDFtoPNGFunc(boolConvertedAll) {
         }
         // return boolConvertedAll;
       })
+      .then({})
       .catch((err) => {
         console.error(err);
       });

@@ -9,7 +9,12 @@ const matchAll = (r) => (s) => [...s.matchAll(r)];
 const orderList = matchAll(
   /Order Id  (\d+ \d+ \d+|\d+)\n\n?.*?SKU  (.*?) .*?\n.*?Sonu/gs
 );
-let dataBuffer = fs.readFileSync("./TOILETRY BAG.pdf");
+// let dataBuffer = fs.readFileSync("./TOILETRY BAG.pdf");
+// let dataBuffer = fs.readFileSync(
+//   "./files/RECTANGULAR SMALL CB CALIFORNIA-FEB2-1.pdf"
+// );
+// let dataBuffer = fs.readFileSync("./DENEME.pdf");
+let dataBuffer = fs.readFileSync("./outputFile.pdf");
 
 var arrayOfPDF = [];
 var string;
@@ -38,6 +43,7 @@ pdf(dataBuffer)
     // console.log(string);
     arrayOfPDF = string.split("\n");
     // console.log(arrayOfPDF);
+    console.log(str);
   })
   .then(function () {
     // var el = arrayOfPDF.find((a) => a.includes("Date"));
